@@ -14,7 +14,7 @@ const resources = {
 };
 
 const detectionOptions = {
-  order: ["cookie", "localStorage", "navigator", "querystring", "path"],
+  order: ["localStorage", "navigator", "querystring", "path"],
   lookupLocalStorage: "lang",
   lookupCookie: "lang",
 };
