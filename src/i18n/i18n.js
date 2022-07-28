@@ -3,6 +3,7 @@ import { initReactI18next } from "react-i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
 import enUS from "../locale/en_US/translations.json";
 import frFR from "../locale/fr_FR/translations.json";
+import deDE from "../locale/de_DE/translations.json";
 
 const resources = {
   "en-US": {
@@ -11,7 +12,15 @@ const resources = {
   "fr-FR": {
     lang: frFR,
   },
+  "de-DE": {
+    lang: deDE,
+  },
 };
+
+export const locales = Object.keys(resources).map((key) => ({
+  name: key,
+  value: key,
+}));
 
 const detectionOptions = {
   order: ["localStorage", "navigator", "querystring", "path"],

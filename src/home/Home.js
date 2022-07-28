@@ -1,6 +1,6 @@
-import { localize } from "./i18n/localize";
-import PropTypes from "prop-types";
+import { localize } from "../i18n/Localize";
 import React from "react";
+import PropTypes from "prop-types";
 
 @localize
 class Home extends React.Component {
