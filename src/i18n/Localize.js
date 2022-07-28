@@ -3,7 +3,6 @@ import i18n from "./i18n";
 import { LocaleContext } from "./LocaleContext";
 
 export const translator = (key, vars) => {
-  console.log(i18n.language);
   return i18n.t(`lang:${key}`, vars);
 };
 

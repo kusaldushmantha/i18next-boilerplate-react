@@ -28,4 +28,4 @@ This project leverages following tools and technologies
 
 ### Deployment
 
-Demo project deployed [here]()
+Demo project deployed [https://kusalk-react-i18n-project.netlify.app/](https://kusalk-react-i18n-project.netlify.app/)
