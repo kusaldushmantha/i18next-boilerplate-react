@@ -1,31 +1,33 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
-import enUS from "../locale/en_US/translations.json";
-import frFR from "../locale/fr_FR/translations.json";
-import deDE from "../locale/de_DE/translations.json";
-
-const resources = {
-  "en-US": {
-    lang: enUS,
-  },
-  "fr-FR": {
-    lang: frFR,
-  },
-  "de-DE": {
-    lang: deDE,
-  },
-};
-
-export const locales = Object.keys(resources).map((key) => ({
-  name: key,
-  value: key,
-}));
+import {
+  getLocaleCurrency,
+  getLocaleDateTimeLong,
+  getLocaleDateTimeShort,
+  getLocaleNumber,
+} from "./formatter-utils";
+import { resources } from "./language-resources";
 
 const detectionOptions = {
   order: ["localStorage", "navigator", "querystring", "path"],
   lookupLocalStorage: "lang",
   lookupCookie: "lang",
+};
+
+const valueFormatter = (value, format, lng) => {
+  switch (format) {
+    case "number":
+      return getLocaleNumber(lng, value);
+    case "datetime":
+      return getLocaleDateTimeShort(lng, value);
+    case "datetimelong":
+      return getLocaleDateTimeLong(lng, value);
+    case "currency":
+      return getLocaleCurrency(lng, value);
+    default:
+      return value;
+  }
 };
 
 i18n
@@ -38,6 +40,7 @@ i18n
     debug: true,
     interpolation: {
       escapeValue: false,
+      format: valueFormatter,
     },
     ns: ["lang"],
   });

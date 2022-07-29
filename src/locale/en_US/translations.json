@@ -1,3 +1,7 @@
 {
-  "welcome.to.react": "Welcome to React and react-i18next"
+  "welcome.to.react": "Welcome to React and react-i18next",
+  "currency.sample": "The sample currency looks like : {{ var, currency }}",
+  "number.sample": "Numbers look like : {{ var, number }}",
+  "datetime.sample": "The date and time format looks like : {{ var, datetime }} or {{ var, datetimelong }}",
+  "sample.variable": "Input with a variable looks like : {{ var }}"
 }

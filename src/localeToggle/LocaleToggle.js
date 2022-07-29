@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import ToggleButton from "react-bootstrap/ToggleButton";
-import i18n, { locales } from "../i18n/i18n";
+import i18n from "../i18n/i18n";
 import PropTypes from "prop-types";
+import { locales } from "../i18n/language-resources";
 
 export const LocaleToggle = (props) => {
-  const [radioValue, setRadioValue] = useState("en-US");
+  const [radioValue, setRadioValue] = useState(
+    localStorage.getItem("lang") || i18n.options.fallbackLng
+  );
 
   const localeOptions = locales;
 

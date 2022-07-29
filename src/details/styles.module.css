@@ -1,0 +1,10 @@
+.details {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    margin-top: 2rem;
+    border: 1px solid azure;
+    box-shadow: 1px 1px 8px 5px #a8a8a8;
+    padding: 1rem;
+    font-family: "Calibri Light", serif;
+}

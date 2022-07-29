@@ -5,6 +5,7 @@ import { LocaleToggle } from "./localeToggle/LocaleToggle";
 import { LocaleContext } from "./i18n/LocaleContext";
 import { translator } from "./i18n/Localize";
 import i18n from "./i18n/i18n";
+import Details from "./details/Details";
 
 class App extends React.Component {
   constructor(props) {
@@ -30,9 +31,10 @@ class App extends React.Component {
         <header className="App-header">
           <LocaleToggle changeLanguage={this.changeLanguage} />
           <br />
-          <LocaleContext.Provider value={{ translator, lang: this.state.lang }}>
+          <LocaleContext.Provider value={translator}>
             <h1>React i18n App</h1>
             <Home />
+            <Details />
           </LocaleContext.Provider>
         </header>
       </div>

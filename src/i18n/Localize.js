@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import i18n from "./i18n";
 import { LocaleContext } from "./LocaleContext";
+import PropTypes from "prop-types";
 
 export const translator = (key, vars) => {
   return i18n.t(`lang:${key}`, vars);
@@ -8,17 +9,17 @@ export const translator = (key, vars) => {
 
 export const localize = (WrappedComponent) => {
   // eslint-disable-next-line react/display-name
-  return class extends Component {
+  class LocalizerHOC extends Component {
     static contextType = LocaleContext;
 
     render() {
-      return (
-        <WrappedComponent
-          {...this.props}
-          translator={this.context.translator}
-          lang={this.context.lang}
-        />
-      );
+      return <WrappedComponent {...this.props} translator={this.context} />;
     }
+  }
+
+  LocalizerHOC.propTypes = {
+    translator: PropTypes.func.isRequired,
   };
+
+  return LocalizerHOC;
 };
